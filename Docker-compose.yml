@@ -8,19 +8,19 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - "cours:/var/lib/redis/data"
+      - "dbredis:/var/lib/redis/data"
     entrypoint: redis-server --appendonly yes
     restart: always
       
   database:
-    image: "postgress:latest"
+    image: "postgres:latest"
     restart: "unless-stopped"
     environment:
       POSTGRES_DB: "coursdevops" # nom de la BDD
       POSTGRES_USER: "eve" # username pour accéder à la BDD
       POSTGRES_PASSWORD: "azerty" # mdp pour accéder à la BDD pour cet user
     volumes: 
-    - "cours:/var/lib/postgresql/data"
+    - "dbsql:/var/lib/postgresql/data"
     ports:
     - "5432:5432"
 
