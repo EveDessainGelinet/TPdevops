@@ -1,10 +1,21 @@
 version: "3.1"
 
 services: 
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - "cours:/var/lib/redis/data"
+    entrypoint: redis-server --appendonly yes
+    restart: always
+      
   database:
     image: "postgress:latest"
     restart: "unless-stopped"
-    environnement:
+    environment:
       POSTGRES_DB: "coursdevops"
       POSTGRES_USER: "eve"
       POSTGRES_PASSWORD: "azerty"
@@ -14,4 +25,5 @@ services:
     - "5432:5432"
 
 volumes:
-  cours:
+  dbsql:
+  dbredis:
