@@ -16,9 +16,9 @@ services:
     image: "postgress:latest"
     restart: "unless-stopped"
     environment:
-      POSTGRES_DB: "coursdevops"
-      POSTGRES_USER: "eve"
-      POSTGRES_PASSWORD: "azerty"
+      POSTGRES_DB: "coursdevops" # nom de la BDD
+      POSTGRES_USER: "eve" # username pour accéder à la BDD
+      POSTGRES_PASSWORD: "azerty" # mdp pour accéder à la BDD pour cet user
     volumes: 
     - "cours:/var/lib/postgresql/data"
     ports:
