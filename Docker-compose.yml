@@ -1,6 +1,16 @@
 version: "3.1"
 
 services: 
+
+  redis:
+    image: redis:4.0.5-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    hostname: redis
+    networks:
+      - redis-net
+    volumes:
+      - redis-data:/data
+      
   database:
     image: "postgress:latest"
     restart: "unless-stopped"
