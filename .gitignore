@@ -95,8 +95,8 @@ $RECYCLE.BIN/
 #
 # example.tfvars
 **/.terraform/*
-*.tfvars
-*.tfstate
-*.tfstate.*
+**/.tfvars
+**/.tfstate
+**/.tfstate.*
 
 # End of https://www.gitignore.io/api/go,linux,macos,windows
