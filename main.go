@@ -3,10 +3,17 @@ package main
 import (
 	"log"
 	"net/http"
-	"wsf/TPdevops/handler"
+	"os"
+
+	"./handler"
 )
 
 func main() {
+
+	port := os.Getenv("PORT") //OS
+	if port == "" {
+		port = "8080"
+	}
 
 	myHandler := handler.NewHandler()
 
